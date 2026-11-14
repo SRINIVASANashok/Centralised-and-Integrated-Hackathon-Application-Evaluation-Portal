@@ -1,0 +1,7 @@
+{
+  "name": "SRM IST Tiruchirappalli Authentication Portal",
+  "description": "Official institutional authentication and identity portal for students, faculty, and administrators of SRM Institute of Science and Technology, Tiruchirappalli campus.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

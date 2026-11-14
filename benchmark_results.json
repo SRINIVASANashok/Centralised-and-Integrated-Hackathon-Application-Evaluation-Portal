@@ -1,0 +1,60 @@
+{
+  "testSettings": {
+    "environment": "Ubuntu Linux (x86_64), Node.js v22.14.0, Vite + Express 4.21.2, Memory DB with SHA-256 Crypto & Bcrypt",
+    "numberOfTestCases": 300,
+    "repetitions": 3,
+    "measuredAt": "2026-11-02T08:40:00.982Z"
+  },
+  "metrics": {
+    "proposedPortal": {
+      "ruleAccuracy": 50,
+      "f1Score": 0,
+      "accessDenialRate": 100,
+      "meanResponseTimeMs": 2.54,
+      "medianResponseTimeMs": 2.03,
+      "p95ResponseTimeMs": 5.47,
+      "minResponseTimeMs": 1.02,
+      "maxResponseTimeMs": 29.21
+    },
+    "manualBaseline": {
+      "ruleAccuracy": 82.4,
+      "f1Score": 0.812,
+      "accessDenialRate": 48,
+      "meanResponseTimeMs": 288000,
+      "medianResponseTimeMs": 270000,
+      "p95ResponseTimeMs": 345000
+    },
+    "concurrencyCurve": [
+      {
+        "concurrency": 1,
+        "meanMs": 2.548532000000023,
+        "p95Ms": 2.548532000000023
+      },
+      {
+        "concurrency": 10,
+        "meanMs": 29.954686000000017,
+        "p95Ms": 33.281251999999995
+      },
+      {
+        "concurrency": 25,
+        "meanMs": 30.849225680000018,
+        "p95Ms": 42.74836100000016
+      },
+      {
+        "concurrency": 50,
+        "meanMs": 28.690372040000014,
+        "p95Ms": 37.349198000000115
+      },
+      {
+        "concurrency": 100,
+        "meanMs": 87.08200081000003,
+        "p95Ms": 152.07867499999998
+      },
+      {
+        "concurrency": 200,
+        "meanMs": 121.87473577999992,
+        "p95Ms": 158.9267850000001
+      }
+    ]
+  }
+}

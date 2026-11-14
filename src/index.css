@@ -1,0 +1,310 @@
+@import "tailwindcss";
+
+:root {
+  --accent-red: #ef233c;
+  --accent-red-glow: rgba(239, 35, 60, 0.5);
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Manrope", sans-serif;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Custom Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes border-spin {
+  from {
+    --gradient-angle: 0deg;
+  }
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.font-manrope {
+  font-family: 'Manrope', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Shiny CTA Button with Conic Gradient */
+.shiny-cta {
+  --gradient-angle: 0deg;
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 0.875rem 2.25rem;
+  background: linear-gradient(#000000, #000000) padding-box,
+    conic-gradient(from var(--gradient-angle), transparent 0%, #ef233c 5%, #ef233c 15%, #ef233c 30%, transparent 40%, transparent 100%) border-box;
+  border: 2px solid transparent;
+  cursor: pointer;
+  isolation: isolate;
+  animation: border-spin 2.5s linear infinite;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.shiny-cta:hover {
+  transform: scale(1.02);
+}
+
+.shiny-cta:active {
+  transform: scale(0.98);
+}
+
+.shiny-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, white 0.5px, transparent 0);
+  background-size: 4px 4px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Parallax Bright Stars */
+.stars-1 {
+  box-shadow: 234px 124px #ffffff, 654px 345px #ffffff, 876px 12px #ff4d6d, 1200px 800px #ffffff,
+    400px 1500px #38bdf8, 1800px 200px #ffffff, 100px 1000px #ffffff, 900px 1900px #fbbf24,
+    500px 600px #ffffff, 1400px 100px #ff4d6d, 300px 400px #ffffff, 1600px 1200px #ffffff,
+    750px 250px #ffffff, 1100px 600px #ff758f, 150px 850px #ffffff, 1350px 1450px #38bdf8,
+    450px 1150px #ffffff, 1650px 350px #ffffff, 950px 750px #ffb703, 1250px 150px #ffffff;
+}
+
+.stars-2 {
+  box-shadow: 123px 456px #ffffff, 789px 234px #ff4d6d, 456px 890px #ffffff, 1100px 300px #ffffff,
+    200px 1200px #38bdf8, 1500px 500px #ffffff, 600px 1700px #ffffff, 1300px 900px #fbbf24,
+    350px 150px #ffffff, 850px 1050px #ffffff, 1450px 750px #ff758f, 1750px 1350px #ffffff;
+}
+
+.gradient-blur {
+  position: fixed;
+  z-index: 30;
+  inset: 0 0 auto 0;
+  height: 120px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+  backdrop-filter: blur(8px);
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.selection-red::selection {
+  background: #ef233c;
+  color: white;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+  color: transparent;
+}
+
+/* Red Noir Theme Overrides for All Components & Views */
+/* Red Noir Theme Overrides for Dashboard & Dark Shell Elements */
+/* Red Noir Theme Overrides for All Dashboards, Portals & Shell Elements */
+.theme-red-noir,
+body.theme-red-noir {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Base text color helper */
+.theme-red-noir .text-zinc-400 {
+  color: #a1a1aa;
+}
+
+/* Universal Dashboard and Card Transformation for Red Noir Theme */
+.theme-red-noir .bg-white:not(.keep-white) {
+  background: linear-gradient(135deg, rgba(16, 16, 20, 0.88) 0%, rgba(9, 9, 12, 0.96) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(239, 35, 60, 0.08) !important;
+}
+
+.theme-red-noir .bg-slate-50:not(.keep-white),
+.theme-red-noir .bg-slate-100:not(.keep-white) {
+  background-color: rgba(24, 24, 27, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #e4e4e7 !important;
+}
+
+.theme-red-noir .border-slate-200,
+.theme-red-noir .border-slate-300 {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.theme-red-noir [class*="text-[#002147]"],
+.theme-red-noir .text-\[\#002147\] {
+  color: #ffffff !important;
+}
+
+.theme-red-noir .text-slate-900,
+.theme-red-noir .text-slate-800 {
+  color: #ffffff !important;
+}
+
+.theme-red-noir .text-slate-700,
+.theme-red-noir .text-slate-600 {
+  color: #d4d4d8 !important;
+}
+
+.theme-red-noir .text-slate-500,
+.theme-red-noir .text-slate-400 {
+  color: #a1a1aa !important;
+}
+
+/* Table styling in dashboards */
+.theme-red-noir table thead tr {
+  background-color: rgba(24, 24, 27, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+.theme-red-noir table th {
+  color: #d4d4d8 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.theme-red-noir table tbody tr {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.theme-red-noir table tbody tr:hover {
+  background-color: rgba(39, 39, 42, 0.6) !important;
+}
+
+/* Form inputs & controls */
+.theme-red-noir input,
+.theme-red-noir select,
+.theme-red-noir textarea {
+  background-color: rgba(24, 24, 27, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.theme-red-noir input::placeholder,
+.theme-red-noir textarea::placeholder {
+  color: #71717a !important;
+  -webkit-text-fill-color: #71717a !important;
+  opacity: 1 !important;
+}
+
+.theme-red-noir input:focus,
+.theme-red-noir select:focus,
+.theme-red-noir textarea:focus {
+  border-color: #ef233c !important;
+  box-shadow: 0 0 15px rgba(239, 35, 60, 0.35) !important;
+  outline: none !important;
+}
+
+/* ==========================================================================
+   AUTHENTICATION & LOGIN CARD STYLING (Harmonized with Background)
+   ========================================================================== */
+
+div#root:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1),
+.login-card-noir,
+.auth-card,
+.dashboard-card-noir {
+  background: linear-gradient(135deg, rgba(18, 18, 22, 0.88) 0%, rgba(9, 9, 11, 0.96) 100%) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(239, 35, 60, 0.15) !important;
+  color: #ffffff !important;
+}
+
+.login-card-noir h1, .login-card-noir h2, .login-card-noir h3,
+.auth-card h1, .auth-card h2, .auth-card h3,
+.dashboard-card-noir h1, .dashboard-card-noir h2, .dashboard-card-noir h3 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.login-card-noir label,
+.auth-card label,
+.dashboard-card-noir label {
+  color: #f4f4f5 !important;
+  font-weight: 700 !important;
+}
+
+.login-card-noir p,
+.auth-card p,
+.dashboard-card-noir p {
+  color: #d4d4d8 !important;
+}
+
+.login-card-noir input,
+.auth-card input,
+.dashboard-card-noir input,
+.login-card-noir select,
+.auth-card select,
+.dashboard-card-noir select {
+  background-color: rgba(24, 24, 27, 0.9) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+.login-card-noir input::placeholder,
+.auth-card input::placeholder,
+.dashboard-card-noir input::placeholder {
+  color: #71717a !important;
+  -webkit-text-fill-color: #71717a !important;
+  opacity: 1 !important;
+}
+
+.login-card-noir input:focus,
+.auth-card input:focus,
+.dashboard-card-noir input:focus,
+.login-card-noir select:focus,
+.auth-card select:focus,
+.dashboard-card-noir select:focus {
+  background-color: rgba(24, 24, 27, 0.98) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border-color: #ef233c !important;
+  box-shadow: 0 0 0 3px rgba(239, 35, 60, 0.3) !important;
+}
+
+
